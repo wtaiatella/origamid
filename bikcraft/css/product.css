@@ -1,0 +1,183 @@
+/*
+Theme Name: Bikcraft
+Theme URI: http://wtaiatella.github.com
+Author: Wagner Elias Taiatella
+Author URI: http://wtaiatella.github.com
+Description: Theme used for Bikcraft page.
+Version: 1.0
+
+-----------------------------------------------
+Basic Default
+-----------------------------------------------
+*** VARIABLE DECLARATION
+*** GENERAL STYLES
+*** HEADER
+*** FOOTER
+*** MAIN PAGE
+*** EXTRAS
+*** @MEDIA
+
+font-family: Arial, Helvetica, sans-serif;
+Colors used:
+yellow dark: #fec63e;
+White: #fff;
+*/
+
+/* GENERAL STYLES */
+
+/* MAIN PAGE  */
+
+.introduction-product {
+  background: url("../img/product-intro.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.product-item {
+  padding-top: 60px;
+}
+
+.product-item h2 {
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  position: relative;
+  top: -190px;
+  text-align: center;
+  color: white;
+  margin-bottom: -60px;
+}
+
+.product-item h2:after,
+.product-item h2:before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: white;
+  margin: 8px auto;
+}
+
+.product-icon {
+  background-color: black;
+  padding: 70px 0;
+}
+
+.product-icon img {
+  margin: 0 auto;
+}
+
+.product-info {
+  background-color: black;
+}
+
+.product-info p {
+  color: white;
+  font-size: 18px;
+  line-height: 25px;
+  padding: 30px 30px;
+  height: 182px;
+}
+
+.product-info ul li {
+  background: #fec63e;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 20px;
+  float: left;
+  width: 229px;
+  height: 48px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.product-info ul li:nth-child(1),
+.product-info ul li:nth-child(2) {
+  margin-bottom: 2px;
+}
+
+.product-info ul li:nth-child(even) {
+  margin-left: 2px;
+}
+
+.quotation {
+  background: black;
+  width: 100%;
+  margin-top: 60px;
+  padding: 40px 0;
+}
+
+.quotation .subtitle {
+  color: #fec63e;
+}
+
+.quotation .subtitle:after {
+  background: #fec63e;
+}
+
+.quotation-form {
+  padding-right: 50px;
+}
+
+.quotation-form label {
+  display: block;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 25px;
+  outline: none;
+}
+
+.quotation-form .form-inputs {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 25px;
+  background: none;
+  color: white;
+  border: 4px solid #fec63e;
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 15px;
+}
+
+.quotation-form .btn {
+  margin-top: 20px;
+  background: none;
+}
+
+.quotation-info {
+  color: white;
+}
+
+.quotation-info h3 {
+  color: #fec63e;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.quotation-info span {
+  display: block;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 25px;
+}
+
+.e-mail {
+  margin-bottom: 30px;
+}
+
+.quotation-info p {
+  margin-bottom: 10px;
+}
+
+.quotation-info ul li {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.quotation-info ul li:nth-child(odd) {
+  background: #1d1d1d;
+}

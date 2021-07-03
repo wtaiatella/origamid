@@ -1,0 +1,61 @@
+/*
+Theme Name: Bikcraft
+Theme URI: http://wtaiatella.github.com
+Author: Wagner Elias Taiatella
+Author URI: http://wtaiatella.github.com
+Description: Theme used for Bikcraft page.
+Version: 1.0
+
+-----------------------------------------------
+Basic Default
+-----------------------------------------------
+*** VARIABLE DECLARATION
+*** GENERAL STYLES
+*** HEADER
+*** FOOTER
+*** MAIN PAGE
+*** EXTRAS
+*** @MEDIA
+
+font-family: Arial, Helvetica, sans-serif;
+Colors used:
+yellow dark: #fec63e;
+White: #fff;
+*/
+
+/* GENERAL STYLES */
+
+/* MAIN PAGE  */
+
+.introduction-about {
+  background: url("../img/about-intro.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.values {
+  padding-top: 60px;
+}
+.values p {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 1em;
+  padding-right: 50px;
+}
+
+.values ul li {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.subtitle-about {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.subtitle-about:after {
+  margin: 5px 0px;
+}
+
+.about-img {
+  padding-top: 40px;
+}
