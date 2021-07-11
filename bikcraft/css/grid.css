@@ -97,7 +97,15 @@
   width: 300px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+/*a largura máxima é de 959, mas deve ser configurado com mais 20px
+para considerar a barra de rolagem vertical do navegador.
+
+Segundo explicação do curso, o Chrome e alguns navegadores passaram a considerar a considerar a barra lateral na contagem.
+Se não adicionar este valor, aparece uma barra de rolagem horizontal quando a largura do navegador se aproxima do valor de 959px
+
+O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
   .container {
     width: 768px;
   }
@@ -155,7 +163,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 787px) {
   .container {
     width: 300px;
   }
@@ -178,6 +186,7 @@
   .grid-16,
   .grid-1-3 {
     width: 300px;
+    float: none;
     margin: 0 0 20px 0;
   }
 }
