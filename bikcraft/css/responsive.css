@@ -6,7 +6,7 @@ Se não adicionar este valor, aparece uma barra de rolagem horizontal quando a l
 
 O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
 
-@media only screen and (min-width: 768px) and (max-width: 979px) {
+@media only screen and (min-width: 788px) and (max-width: 979px) {
   .quality {
     padding: 60px 0;
   }
@@ -23,12 +23,24 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
   .quality-list .subtitle {
     font-size: 21px;
   }
+
+  .footer-socialmedia ul li {
+    margin-right: 5px;
+  }
+
+  .footer-socialmedia ul li a {
+    padding: 5px;
+  }
 }
 
 @media only screen and (max-width: 787px) {
   .introduction {
     margin-top: 0;
     padding-top: 40px;
+  }
+
+  .call-to-action {
+    padding-top: 0px;
   }
 
   .header {
@@ -56,7 +68,41 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
     padding: 10px 0;
   }
 
-  .header_menu ul li a:hover {
+  .header_menu ul li a:hover,
+  .header_menu ul li a.active-menu {
     border-color: white;
+  }
+
+  .introduction-home h1 {
+    font-size: 40px;
+  }
+
+  .products {
+    padding: 40px 0;
+  }
+
+  .quality {
+    padding: 40px 0;
+  }
+
+  .quality:after {
+    display: none;
+  }
+
+  .quality img {
+    margin: 0 auto 20px;
+  }
+
+  .quality-list li {
+    padding: 0px 0 0;
+    text-align: center;
+  }
+
+  .values p {
+    padding-right: 0px;
+  }
+
+  .about-img {
+    padding-top: 20px;
   }
 }
