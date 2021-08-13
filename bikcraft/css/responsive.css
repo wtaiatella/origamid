@@ -32,27 +32,27 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
   .footer-socialmedia ul li a {
     padding: 5px;
   }
-}
 
-/* Responsive Style for Product page */
-.product-item h2 {
-  top: -150px;
-}
+  /* Responsive Style for Product page */
+  .product-item h2 {
+    top: -150px;
+  }
 
-.product-icon {
-  padding: 41px 0;
-}
+  .product-icon {
+    padding: 41px 0;
+  }
 
-.product-info p {
-  font-size: 14px;
-  line-height: 20px;
-  padding: 20px 20px;
-  height: 122px;
-}
+  .product-info p {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 20px 20px;
+    height: 122px;
+  }
 
-.product-info ul li {
-  width: 181px;
-  height: 49px;
+  .product-info ul li {
+    width: 181px;
+    height: 49px;
+  }
 }
 
 /*Responive Style for Mobile */
@@ -155,5 +155,18 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
 
   .quotation-form {
     padding-right: 0px;
+  }
+
+  .contact {
+    padding: 40px 0 20px;
+  }
+
+  .contact-form {
+    padding-right: 0px;
+    margin-bottom: 40px 0 0 0;
+  }
+
+  .map {
+    margin-bottom: 40px;
   }
 }
