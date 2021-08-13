@@ -1,11 +1,12 @@
 /*a largura máxima é de 959, mas deve ser configurado com mais 20px
 para considerar a barra de rolagem vertical do navegador.
 
-Segundo explicação do curso, o Chrome e alguns navegadores passaram a considerar a considerar a barra lateral na contagem.
+Segundo explicação do curso, o Chrome e alguns navegadores passaram a considerar a barra lateral na contagem.
 Se não adicionar este valor, aparece uma barra de rolagem horizontal quando a largura do navegador se aproxima do valor de 959px
 
 O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
 
+/*Responsive Style for Tablets */
 @media only screen and (min-width: 788px) and (max-width: 979px) {
   .quality {
     padding: 60px 0;
@@ -32,6 +33,29 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
     padding: 5px;
   }
 }
+
+/* Responsive Style for Product page */
+.product-item h2 {
+  top: -150px;
+}
+
+.product-icon {
+  padding: 41px 0;
+}
+
+.product-info p {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 20px 20px;
+  height: 122px;
+}
+
+.product-info ul li {
+  width: 181px;
+  height: 49px;
+}
+
+/*Responive Style for Mobile */
 
 @media only screen and (max-width: 787px) {
   .introduction {
@@ -104,5 +128,32 @@ O mesmo para a media menor abaixo de 767px, deve-se configurar 787px*/
 
   .about-img {
     padding-top: 20px;
+  }
+
+  .product-item h2 {
+    top: -105px;
+    margin-bottom: -68px;
+  }
+
+  .product-icon {
+    padding: 41px 0;
+  }
+
+  .product-info p {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 20px 30px;
+    height: auto;
+  }
+
+  .product-info ul li {
+    width: 149px;
+    height: 49px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .quotation-form {
+    padding-right: 0px;
   }
 }
