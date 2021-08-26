@@ -48,16 +48,46 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
   padding-top: 10px;
-  border-color: white;
 }
 
 .menu-bg {
+  background: #2c70ff;
 }
 
 .menu {
+  max-width: 960px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
 }
 
-.menu-logo {
+.menu a {
+  color: white;
+}
+
+.menu-logo a {
+  font-size: 2.25em;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.menu-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-nav a {
+  font-size: 1.25em;
+  /* tranforma de in-line para block para poder trabalhar com o paddin do "a" */
+  display: block;
+  padding: 10px;
+}
+
+.menu-nav a:hover {
+  color: #122ab2;
 }
 
 .introducao {
