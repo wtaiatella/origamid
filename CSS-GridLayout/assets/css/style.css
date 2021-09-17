@@ -27,6 +27,8 @@ img {
   width: 100%;
 }
 
+/* Genreal Grid */
+
 .structure {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) 4fr 300px;
@@ -35,6 +37,8 @@ img {
     'sidenav content advertising'
     'footer footer footer';
 }
+
+/* HEADER */
 
 .header {
   grid-area: header;
@@ -72,6 +76,8 @@ img {
   max-width: 200px;
 }
 
+/* SIDENAV */
+
 .sidenav {
   grid-area: sidenav;
   background: #fafbfc;
@@ -93,6 +99,8 @@ img {
 .sidenav li a:hover {
   background: #b07dfb;
 }
+
+/* MAIN CONTENT */
 
 .content {
   grid-area: content;
@@ -221,6 +229,8 @@ p {
   border-top: 2px solid #b07dfb;
 }
 
+/* ADVERTISING */
+
 .advertising {
   grid-area: advertising;
   background: #fafbfc;
@@ -228,7 +238,10 @@ p {
   padding: 30px;
   align-content: start;
   gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+/* FOOTER */
 
 .footer {
   grid-area: footer;
@@ -239,4 +252,93 @@ p {
   color: white;
   text-align: center;
   padding: 30px;
+}
+
+/* QUERIES */
+
+@media (max-width: 1200px) {
+  .structure {
+    /* grid-template-columns: minmax(160px, 1fr) 4fr; */
+    grid-template-areas:
+      'header header header'
+      'sidenav content content'
+      'sidenav advertising advertising'
+      'footer footer footer';
+    /* 'header header'
+      'sidenav content'
+      'sidenav advertising'
+      'footer footer'; */
+  }
+}
+
+@media (max-width: 760px) {
+  .structure {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'header'
+      'sidenav'
+      'content'
+      'advertising'
+      'footer';
+  }
+
+  .header {
+    grid-template-columns: auto;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .header nav a {
+    font-size: 1em;
+  }
+
+  .header li + li {
+    margin-left: 15px;
+  }
+
+  .sidenav {
+    padding: 0 30px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    position: relative;
+  }
+
+  .sidenav::after {
+    content: '→';
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0, 0, 0, 0.5);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+
+  .sidenav ul li {
+    flex: 1 0 60px;
+  }
+
+  .sidenav li a {
+    margin: 30px 30px 30px 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .content {
+    grid-template-columns: auto;
+  }
+}
+
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
 }
