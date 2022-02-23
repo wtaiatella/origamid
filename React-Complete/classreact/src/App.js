@@ -1,30 +1,19 @@
 import React from 'react'
-import Header from './class0210 - components/Header'
-import Footer from './class0210 - components/Footer'
-import Form from './class0210 - components/form/Form'
+import Header from './class0212 - exercise/Header'
+import Home from './class0212 - exercise/Home'
+import Products from './class0212 - exercise/Products'
 
-const Titulo = ({ cor, texto, children }) => {
-  return (
-    <h1 style={{ color: cor }}>
-      {texto}
-      {children}
-    </h1>
-  )
-}
+const pathName = window.location.pathname
+
+const Page = pathName === '/Products' ? Products : Home
+console.log(pathName)
 
 const App = () => {
   return (
     <div>
       <Header />
 
-      <Titulo texto="Meu Primeiro Título" cor="blue">
-        {' '}
-        Este é o children
-      </Titulo>
-
-      <p>Esse é o meu formulário</p>
-      <Form />
-      <Footer />
+      <Page />
     </div>
   )
 }
