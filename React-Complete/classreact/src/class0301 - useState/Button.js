@@ -1,32 +1,34 @@
 import React from 'react'
 
 const styleBlock = {
-  border: '1px solid',
-  // padding: '20px',
+  border: '2px solid',
+  padding: '20px',
   margin: '20px',
-  //  width:'100px'
+  width: '100px',
 }
-const styleLink = {
+/* const styleLink = {
   // border: '1px solid',
   padding: '20px',
   display: 'block',
   // margin: '20px',
-}
+} */
 
-const Button = ({...}) => {
-
+const Button = ({ setData, setLoading, children }) => {
   async function handleClick(event) {
-    setLoading(true);
+    setLoading(true)
     const response = await fetch(
       `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
-    );
-    const json = await response.json();
-    setDados(json);
-    setCarregando(false);
+    )
+    const json = await response.json()
+    console.log(json)
+    setData(json)
+    setLoading(false)
   }
 
   return (
-    <button style={styleBlock} onClick={handleClick}>botão</button>
+    <button style={styleBlock} onClick={handleClick}>
+      {children}
+    </button>
   )
 }
 
