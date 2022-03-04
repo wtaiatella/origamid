@@ -1,19 +1,20 @@
 import React from 'react'
-import Header from './class0212 - exercise/Header'
-import Home from './class0212 - exercise/Home'
-import Products from './class0212 - exercise/Products'
+import Button from './class0301 - useState/Button'
+import Product from './class0301 - useState/Product'
 
-const pathName = window.location.pathname
-
-const Page = pathName === '/Products' ? Products : Home
-console.log(pathName)
+//TODO: use useState to keep data fetched from button
+//TODO:
 
 const App = () => {
+  const [data, setData] = React.useState(null)
+  const [loading, setLoading] = React.useState(null)
+
+  const props = [data, setData, loading, setLoading]
   return (
     <div>
-      <Header />
+      <Button props={props}>tablet</Button>
 
-      <Page />
+      <Product props={props} />
     </div>
   )
 }
