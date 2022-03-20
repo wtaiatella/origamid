@@ -1,47 +1,62 @@
 import React from 'react'
-import Product from './class0302 - useEffect/Product'
+import Product from './class0302 - exercise/Product'
+
+//NOTE: Exercise description:
+/*
+Make a SPA with this features:
+ -> Build two buttons and when click on it make a fetch to:
+      https://ranekapi.origamid.dev/json/api/produto/notebook
+      https://ranekapi.origamid.dev/json/api/produto/smartphone
+ -> Show the result at the screen in a new component
+ -> Keep the Product name as an user preference at localStorage
+ -> when the user get the webpage or refresh, use the localStorage product to make a fetch
+*/
 
 const App = () => {
-  const [count, setCount] = React.useState(0)
+  const [product, setProduct] = React.useState(null)
   const [data, setData] = React.useState(null)
-  const [modal, setModal] = React.useState(false)
+  const [loading, setLoading] = React.useState(null)
 
-  //Occurs every time 'count' is updated
-  React.useEffect(() => {
-    document.title = 'Count is ' + count
-  }, [count])
-
+  //Occurs when rendering
+  //TODO: look at localStorage and get user preference to make a fetch
   React.useEffect(() => {
     console.log('Occurs when rendering')
+    if (localStorage.length > 0) {
+      // Means that there are some data on localStorage
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        if (key === 'Product') {
+          let localProduct = window.localStorage.getItem('Product')
+          if (localProduct !== 'null') setProduct(localProduct)
+        }
+      }
+    }
   }, [])
 
+  //Occurs every time 'product' is updated
+  //TODO: make a fetch to update data variable
   React.useEffect(() => {
-    console.log('Occurs when rendering and starting')
-  })
-
-  //NOTE: To work properly, the useEffect in this case should have an empty arrays as dependency to be executed only when de component is render
-  //for the first time. Otherwise the fetch will execute all the time
-
-  //Example for fetch a data from API
-  React.useEffect(() => {
-    fetch('https://ranekapi.origamid.dev/json/api/produto/notebook')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-  }, [])
+    console.log('Occurs when Product is update')
+    if (window.localStorage) {
+      // Means that there is suport for localStorage
+      if (product !== null) {
+        window.localStorage.setItem('Product', product)
+        setLoading(true)
+        fetch(`https://ranekapi.origamid.dev/json/api/produto/${product}`)
+          .then((response) => response.json())
+          .then((json) => setData(json))
+        setLoading(false)
+      }
+    }
+  }, [product])
 
   return (
     <>
-      {data && (
-        <div>
-          <h1>{data.nome}</h1>
-          <p>R$ {data.preco * count}</p>
-        </div>
-      )}
-      <button onClick={() => setCount(count + 1)}>{count}</button>
-
-      {modal && <Product />}
-
-      <button onClick={() => setModal(!modal)}>Show Modal</button>
+      <button onClick={() => setProduct('notebook')}>Notebook</button>
+      <button onClick={() => setProduct('smartphone')}>Smartphone</button>
+      {loading && <p>Loading</p>}
+      {!loading && <p>Not Loading</p>}
+      {data && <Product data={data} loading={loading} />}
     </>
   )
 }
