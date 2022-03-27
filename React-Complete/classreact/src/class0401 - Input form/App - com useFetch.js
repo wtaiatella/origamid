@@ -1,4 +1,5 @@
 import React from 'react'
+import useFetch from './class0401 - Input form/useFetch'
 
 const App = () => {
   const [form, setForm] = React.useState({
@@ -13,32 +14,29 @@ const App = () => {
     estado: '',
   })
 
-  const [response, setResponse] = React.useState(null)
+  const [dataForm, setDataForm] = React.useState(null)
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    fetch('https://ranekapi.origamid.dev/json/api/usuario', {
+  const { loading, error, request } = useFetch()
+
+  React.useEffect(() => {
+    request('https://ranekapi.origamid.dev/json/api/produto/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       // form é o objeto com os dados do formulário
-      body: JSON.stringify(form),
-    }).then((response) => {
-      setResponse(response)
-      //response.json()
-      console.log(response)
+      body: JSON.stringify(dataForm),
     })
-    //.then((json) => setForm(json))
-  }
+    console.log('requisitado')
+  }, [request, dataForm])
 
   function handleChange({ target }) {
     const { id, value } = target
     setForm({ ...form, [id]: value })
   }
-  console.log(form.name)
+  console.log(dataForm)
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={setDataForm(form)}>
       <label htmlFor="name">Name</label>
       <input type="text" id="nome" value={form.nome} onChange={handleChange} />
       <label htmlFor="email">Email</label>
@@ -94,7 +92,9 @@ const App = () => {
         value={form.estado}
         onChange={handleChange}
       />
-      {response && response.ok && <p>Form sent successfully</p>}
+      {loading && <p>Form sent! Waiting response!</p>}
+      {/* {response && response.ok && <p>Form sent successfully</p>} */}
+      {error && <p>{error}</p>}
       <button>Send</button>
     </form>
   )
