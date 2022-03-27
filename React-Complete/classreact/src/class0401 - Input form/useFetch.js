@@ -11,6 +11,7 @@ const useFetch = () => {
     try {
       setError(null)
       setLoading(true)
+      console.log(options)
       response = await fetch(url, options)
       json = await response.json()
       //if (response.ok === false) throw new Error(json.message)
@@ -20,6 +21,7 @@ const useFetch = () => {
     } finally {
       setData(json)
       setLoading(false)
+      console.log(response)
       return { response, json }
     }
   }, [])

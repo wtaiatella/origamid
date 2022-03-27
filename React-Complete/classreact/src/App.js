@@ -13,30 +13,26 @@ const App = () => {
     estado: '',
   })
 
-  const [response, setResponse] = React.useState(null)
+  const [dataForm, setDataForm] = React.useState(null)
+
+  React.useEffect(() => {
+    if (dataForm != null) {
+      console.log(JSON.stringify(dataForm))
+      console.log('requisitado')
+    }
+  }, [dataForm])
 
   function handleSubmit(event) {
+    setDataForm(form)
     event.preventDefault()
-    fetch('https://ranekapi.origamid.dev/json/api/usuario', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // form é o objeto com os dados do formulário
-      body: JSON.stringify(form),
-    }).then((response) => {
-      setResponse(response)
-      //response.json()
-      console.log(response)
-    })
-    //.then((json) => setForm(json))
+    console.log('Executou a handleSumit')
   }
 
   function handleChange({ target }) {
     const { id, value } = target
     setForm({ ...form, [id]: value })
   }
-  console.log(form.name)
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
@@ -94,7 +90,6 @@ const App = () => {
         value={form.estado}
         onChange={handleChange}
       />
-      {response && response.ok && <p>Form sent successfully</p>}
       <button>Send</button>
     </form>
   )
