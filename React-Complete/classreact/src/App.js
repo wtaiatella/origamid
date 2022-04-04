@@ -1,43 +1,88 @@
 import React from 'react'
-import Input from './class0411 - hook useForm/Input'
-import useForm from './class0411 - hook useForm/useForm'
+import Radio from './class0412 - Challenge/radio'
+
+const perguntas = [
+  {
+    pergunta: 'Qual método é utilizado para criar componentes?',
+    options: [
+      'React.makeComponent()',
+      'React.createComponent()',
+      'React.createElement()',
+    ],
+    resposta: 'React.createElement()',
+    id: 'p1',
+  },
+  {
+    pergunta: 'Como importamos um componente externo?',
+    options: [
+      'import Component from "./Component"',
+      'require("./Component")',
+      'import "./Component"',
+    ],
+    resposta: 'import Component from "./Component"',
+    id: 'p2',
+  },
+  {
+    pergunta: 'Qual hook não é nativo?',
+    options: ['useEffect()', 'useFetch()', 'useCallback()'],
+    resposta: 'useFetch()',
+    id: 'p3',
+  },
+  {
+    pergunta: 'Qual palavra deve ser utilizada para criarmos um hook?',
+    options: ['set', 'get', 'use'],
+    resposta: 'use',
+    id: 'p4',
+  },
+]
 
 const App = () => {
-  const cep = useForm('cep')
-  const email = useForm('email')
-  const nome = useForm()
-  const sobrenome = useForm(false)
+  const [respostas, setRespostas] = React.useState({
+    p1: '',
+    p2: '',
+    p3: '',
+    p4: '',
+  })
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    if (cep.validate() && email.validate() && nome.validate()) {
-      console.log('enviou')
+  const [slide, setSlide] = React.useState(0)
+  const [resultado, setResultado] = React.useState(null)
+
+  function handleChange({ target }) {
+    setRespostas({ ...respostas, [target.id]: target.value })
+  }
+
+  function resultadoFinal() {
+    const corretas = perguntas.filter(
+      ({ id, resposta }) => respostas[id] === resposta,
+    )
+    setResultado(`Você acertou: ${corretas.length} de ${perguntas.length}`)
+  }
+
+  function handleClick() {
+    if (slide < perguntas.length - 1) {
+      setSlide(slide + 1)
     } else {
-      console.log('dont send')
+      setSlide(slide + 1)
+      resultadoFinal()
     }
   }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <Input label="Nome" id="nome" type="text" {...nome} />
-      <Input label="Sobrenome" id="sobrenome" type="text" {...sobrenome} />
-
-      <Input
-        label="CEP"
-        id="cep"
-        type="text"
-        placeholder="00000-000"
-        {...cep}
-      />
-
-      <Input
-        label="Email"
-        id="email"
-        type="e-mail"
-        placeholder="escreva seu e-mail"
-        {...email}
-      />
-
-      <button>Send</button>
+    <form onSubmit={(event) => event.preventDefault()}>
+      {perguntas.map((pergunta, index) => (
+        <Radio
+          active={slide === index}
+          key={pergunta.id}
+          value={respostas[pergunta.id]}
+          onChange={handleChange}
+          {...pergunta}
+        />
+      ))}
+      {resultado ? (
+        <p>{resultado}</p>
+      ) : (
+        <button onClick={handleClick}>Next</button>
+      )}
     </form>
   )
 }
