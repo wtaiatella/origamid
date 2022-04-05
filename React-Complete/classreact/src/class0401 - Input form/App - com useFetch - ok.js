@@ -20,7 +20,7 @@ const App = () => {
   React.useEffect(() => {
     if (dataForm != null) {
       console.log(JSON.stringify(dataForm))
-      request('https://ranekapi.origamid.dev/json/api/produto/', {
+      request('https://ranekapi.origamid.dev/json/api/usuario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
